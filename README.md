@@ -2,6 +2,8 @@
 
 # hmip-dashboard-plugin
 
+📦 **[Download hmip-dashboard-plugin-1.0.0.tar.gz](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.0.0.tar.gz)** — install via HCUweb → *Developer mode → Plugins → Install from file*.
+
 Locally hosted web dashboard for the Homematic IP system, served as an HCU
 plugin. Once installed it is reachable at `http://hcu1-XXXX.local:8080`
 (or whichever port you configure).
