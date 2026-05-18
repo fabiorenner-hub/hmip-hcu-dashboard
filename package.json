@@ -1,0 +1,33 @@
+{
+  "name": "hmip-dashboard-plugin",
+  "version": "1.0.0",
+  "description": "Locally hosted web dashboard for the Homematic IP system, served as an HCU plugin. Live overview of rooms, climate, lights, sockets, shutters, security and maintenance via Connect API events.",
+  "author": "Fabio Renner",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/fabiorenner-hub/hmip-hcu-dashboard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiorenner-hub/hmip-hcu-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fabiorenner-hub/hmip-hcu-dashboard/issues"
+  },
+  "keywords": [
+    "homematic",
+    "hmip",
+    "hcu",
+    "dashboard",
+    "smart-home"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --enable-source-maps src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}

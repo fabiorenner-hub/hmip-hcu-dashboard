@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>Smart Home</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link rel="apple-touch-icon" href="/static/icon.svg" />
+    <link rel="manifest" href="/static/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Smart Home" />
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                    <path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" fill="currentColor" />
+                </svg>
+            </div>
+            <h1 id="app-title">Smart Home</h1>
+        </div>
+        <div class="status-chip" id="conn-chip" title="Verbindung zur HCU">Verbinde...</div>
+    </header>
+
+    <section class="overview" id="overview"></section>
+
+    <nav class="tabs" id="tabs">
+        <button class="tab active" data-view="rooms">Räume</button>
+        <button class="tab" data-view="windows">Fenster &amp; Türen</button>
+        <button class="tab" data-view="climate">Klima</button>
+        <button class="tab" data-view="lights">Lichter &amp; Steckdosen</button>
+        <button class="tab" data-view="shutters">Rollläden</button>
+        <button class="tab" data-view="safety">Sicherheit</button>
+        <button class="tab" data-view="maintenance">Wartung</button>
+    </nav>
+
+    <main id="view"></main>
+
+    <footer class="app-footer">
+        <span id="footer-info">–</span>
+    </footer>
+
+    <script src="/static/app.js" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker
+                    .register('/static/sw.js', { scope: '/' })
+                    .catch(() => {});
+            });
+        }
+    </script>
+</body>
+</html>

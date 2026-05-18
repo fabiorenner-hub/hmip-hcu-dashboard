@@ -1,0 +1,640 @@
+:root {
+    color-scheme: dark;
+    --bg: #0a0d12;
+    --bg-elev: #131820;
+    --bg-elev2: #1b2230;
+    --border: #222a38;
+    --fg: #e6ebf2;
+    --fg-dim: #8892a5;
+    --accent: #4dabf7;
+    --accent-strong: #1971c2;
+    --warn: #f59f00;
+    --danger: #e03131;
+    --ok: #40c057;
+    --purple: #9775fa;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+    --gap: 14px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+body {
+    padding-bottom: 3rem;
+}
+
+/* Header ------------------------------------------------------------------ */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    padding: 14px 20px;
+    background: linear-gradient(180deg, #131a26 0%, rgba(19, 24, 32, 0) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(6px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: var(--fg);
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(77, 171, 247, 0.12);
+    display: grid;
+    place-items: center;
+}
+
+.status-chip {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--fg-dim);
+    transition: color 150ms, border-color 150ms, background 150ms;
+}
+
+.status-chip.ok {
+    color: var(--ok);
+    border-color: #264c36;
+    background: rgba(64, 192, 87, 0.1);
+}
+
+.status-chip.error {
+    color: var(--danger);
+    border-color: #4a2728;
+    background: rgba(224, 49, 49, 0.1);
+}
+
+/* Overview tiles ---------------------------------------------------------- */
+.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: var(--gap);
+    padding: 4px 20px 20px;
+}
+
+.kpi {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 88px;
+}
+
+.kpi .value {
+    font-size: 26px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.kpi .value.warn {
+    color: var(--warn);
+}
+
+.kpi .value.danger {
+    color: var(--danger);
+}
+
+.kpi .value.ok {
+    color: var(--ok);
+}
+
+.kpi .label {
+    font-size: 12px;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.kpi .sub {
+    font-size: 12px;
+    color: var(--fg-dim);
+    margin-top: 4px;
+}
+
+/* Tabs -------------------------------------------------------------------- */
+.tabs {
+    display: flex;
+    gap: 6px;
+    padding: 0 20px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+    scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    color: var(--fg-dim);
+    padding: 10px 14px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    white-space: nowrap;
+}
+
+.tab:hover {
+    color: var(--fg);
+}
+
+.tab.active {
+    color: var(--fg);
+}
+
+.tab.active::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: -1px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px 2px 0 0;
+}
+
+/* Main view --------------------------------------------------------------- */
+main {
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--gap);
+}
+
+.card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px 10px;
+    gap: 10px;
+}
+
+.card-head h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-head .room-meta {
+    font-size: 12px;
+    color: var(--fg-dim);
+}
+
+.card-body {
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--fg-dim);
+    margin: 4px 0;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--bg-elev2);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+}
+
+.row .label {
+    font-size: 14px;
+    color: var(--fg);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.row .badge {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--fg-dim);
+    white-space: nowrap;
+}
+
+.badge.open {
+    color: var(--warn);
+    background: rgba(245, 159, 0, 0.12);
+}
+
+.badge.tilted {
+    color: var(--accent);
+    background: rgba(77, 171, 247, 0.12);
+}
+
+.badge.closed {
+    color: var(--ok);
+    background: rgba(64, 192, 87, 0.12);
+}
+
+.badge.danger {
+    color: var(--danger);
+    background: rgba(224, 49, 49, 0.12);
+}
+
+.badge.dim {
+    color: var(--fg-dim);
+}
+
+.climate-big {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-elev2);
+    border-radius: var(--radius-sm);
+}
+
+.climate-metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.climate-metric .v {
+    font-size: 28px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.climate-metric .l {
+    font-size: 11px;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid var(--bg-elev);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid var(--bg-elev);
+}
+
+.setpoint-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.setpoint-row .val {
+    min-width: 48px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+.toggle {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--fg);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 120ms, border-color 120ms;
+}
+
+.toggle.on {
+    background: rgba(77, 171, 247, 0.18);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.toggle[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--fg-dim);
+}
+
+.footer-info {
+    color: var(--fg-dim);
+}
+
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 20px;
+    background: rgba(10, 13, 18, 0.7);
+    backdrop-filter: blur(6px);
+    font-size: 11px;
+    color: var(--fg-dim);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+}
+
+/* Room grid tweaks -------------------------------------------------------- */
+.room-card .card-body {
+    gap: 10px;
+}
+
+.device-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--fg-dim);
+}
+
+.device-chip .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Responsive ------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .app-header {
+        padding: 12px 14px;
+    }
+    .overview,
+    main,
+    .tabs {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .app-footer {
+        padding: 6px 12px;
+    }
+}
+
+/* Weather tile ----------------------------------------------------------- */
+.weather-kpi {
+    background: linear-gradient(135deg, #1b2233 0%, #122033 100%);
+    border-color: #233247;
+}
+
+.weather-kpi .value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+/* Controls --------------------------------------------------------------- */
+.btn {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--fg);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 120ms, border-color 120ms, transform 60ms;
+    min-height: 44px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background: var(--bg-elev2);
+    border-color: #334057;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-lg {
+    min-height: 52px;
+    font-size: 15px;
+    flex: 1;
+}
+
+.toggle {
+    min-height: 40px;
+    padding: 8px 16px;
+}
+
+.toggle.on {
+    background: rgba(77, 171, 247, 0.2);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Shutter rows need more vertical real-estate than the default row */
+.shutter-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+}
+
+.shutter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.shutter-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.shutter-stop {
+    background: rgba(224, 49, 49, 0.08);
+    border-color: #4a2728;
+    color: var(--danger);
+}
+
+.shutter-stop:hover {
+    background: rgba(224, 49, 49, 0.18);
+}
+
+.shutter-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shutter-slider-row .slider-end {
+    font-size: 11px;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    min-width: 38px;
+    text-align: center;
+}
+
+/* Dimmer rows: toggle + slider + value side by side */
+.control-row {
+    gap: 12px;
+}
+
+.control-row .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.control-row .slider-wrap {
+    flex: 1;
+    min-width: 80px;
+    max-width: 160px;
+}
+
+.control-row .val {
+    min-width: 44px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg-dim);
+    font-size: 13px;
+}
+
+.group-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.group-actions .btn {
+    flex: 1;
+}
+
+/* Slider: taller and easier to hit */
+.slider {
+    height: 8px;
+    border-radius: 4px;
+    touch-action: manipulation;
+}
+
+.slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 480px) {
+    .control-row .slider-wrap {
+        max-width: 100px;
+    }
+    .btn-lg {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+}
