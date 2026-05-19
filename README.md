@@ -1,12 +1,25 @@
 > 🇬🇧 English | [🇩🇪 Deutsch](README.de.md)
 
+<p align="center">
+  <img src="icon.svg" alt="hmip-dashboard-plugin icon" width="128" height="128"/>
+</p>
+
 # hmip-dashboard-plugin
 
-📦 **[Download hmip-dashboard-plugin-1.0.0.tar.gz](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.0.0.tar.gz)** — install via HCUweb → *Developer mode → Plugins → Install from file*.
+📦 **[Download hmip-dashboard-plugin-1.1.0.tar.gz](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.1.0.tar.gz)** — install via HCUweb → *Developer mode → Plugins → Install from file*.
+
+GitHub: <https://github.com/fabiorenner-hub/hmip-hcu-dashboard>
 
 Locally hosted web dashboard for the Homematic IP system, served as an HCU
 plugin. Once installed it is reachable at `http://hcu1-XXXX.local:8080`
 (or whichever port you configure).
+
+## Support this plugin
+
+If this plugin is useful to you, please consider a small donation — it helps
+me keep the lights on while building more HCU plugins.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top"><input type="hidden" name="hosted_button_id" value="JPZRATUUHRT5C" /><input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" /><img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" /></form>
 
 ## What the dashboard shows
 
@@ -77,19 +90,19 @@ npm run dev
 ## Architecture
 
 ```
-HMIP App  <-- cloud ------>  HCU  <-- wss:9001 -->  plugin
-                              |
-                           HmipSystemEvent (broadcast)
-                              v
-                          state-store (in-memory)
-                              v
-          project.js --> UI shape --> web-server --> Browser (SSE)
-                                           |
-                                           <-- POST /api/control
-                                           |
-                                           v
-                           hmip/device/control/setSwitchState
-                                        etc.
+HMIP App  <-- cloud ----->  HCU  <-- wss:9001 -->  plugin
+                                                    |
+                                          HmipSystemEvent (broadcast)
+                                                    v
+                                          state-store (in-memory)
+                                                    v
+                       project.js --> UI shape --> web-server --> Browser (SSE)
+                                                                 |
+                                                          <-- POST /api/control
+                                                                 |
+                                                                 v
+                                                  hmip/device/control/setSwitchState
+                                                              etc.
 ```
 
 - `hcu-client.js`: WebSocket + request/response correlation + SystemEvent push
@@ -111,6 +124,10 @@ HMIP App  <-- cloud ------>  HCU  <-- wss:9001 -->  plugin
 The dashboard runs without authentication on the local network. If your LAN
 is also open to guests, set *Allow control* to `false` or put the HCU behind
 a reverse proxy with basic auth (not part of this plugin).
+
+## Author
+
+Issued by **Fabio Renner**.
 
 ## License
 
