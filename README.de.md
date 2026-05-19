@@ -1,4 +1,4 @@
-> [🇬🇧 English](README.md) | 🇩🇪 Deutsch
+> [ðŸ‡¬ðŸ‡§ English](README.md) | ðŸ‡©ðŸ‡ª Deutsch
 
 <p align="center">
   <img src="icon.svg" alt="hmip-dashboard-plugin Symbolbild" width="128" height="128"/>
@@ -6,48 +6,47 @@
 
 # hmip-dashboard-plugin
 
-📦 **[hmip-dashboard-plugin-1.1.0.tar.gz herunterladen](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.1.0.tar.gz)** — Installation in HCUweb über *Entwicklermodus → Plugins → Aus Datei installieren*.
+ðŸ“¦ **[hmip-dashboard-plugin-1.1.1.tar.gz herunterladen](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.1.1.tar.gz)** â€” Installation in HCUweb Ã¼ber *Entwicklermodus â†’ Plugins â†’ Aus Datei installieren*.
 
 GitHub: <https://github.com/fabiorenner-hub/hmip-hcu-dashboard>
 
-Lokal gehostetes Web-Dashboard für die Homematic IP Anlage, ausgeliefert als
+Lokal gehostetes Web-Dashboard fÃ¼r die Homematic IP Anlage, ausgeliefert als
 HCU-Plugin. Nach der Installation erreichbar unter
 `http://hcu1-XXXX.local:8080` (oder dem konfigurierten Port).
 
 ## Spenden
 
-Wenn dir dieses Plugin hilft, freue ich mich über eine kleine Spende — sie hilft
-mir, weitere HCU-Plugins zu bauen und zu pflegen.
-
-<form action="https://www.paypal.com/donate" method="post" target="_top"><input type="hidden" name="hosted_button_id" value="JPZRATUUHRT5C" /><input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" /><img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" /></form>
+Wenn dir dieses Plugin hilft, freue ich mich über eine kleine Spende — sie
+hält bei mir die Lichter an, während ich weitere HCU-Plugins baue:
+[Spenden via PayPal](https://www.paypal.com/donate/?hosted_button_id=JPZRATUUHRT5C).
 
 ## Was das Dashboard zeigt
 
-- **Übersicht**: offene Fenster/Türen, aktive Alarme, Licht an, aktive Steckdosen,
-  Gesamtleistung, Geräte mit niedriger Batterie oder nicht erreichbar
-- **Räume**: pro Raum Klima (Ist-/Soll-Temperatur, Luftfeuchte, Boost,
-  Fenster-offen-Flag), Kontakte, Licht und Steckdosen, Rollläden, Sensoren
-- **Fenster & Türen**: konsolidierte Liste mit Raumzuordnung
+- **Ãœbersicht**: offene Fenster/TÃ¼ren, aktive Alarme, Licht an, aktive Steckdosen,
+  Gesamtleistung, GerÃ¤te mit niedriger Batterie oder nicht erreichbar
+- **RÃ¤ume**: pro Raum Klima (Ist-/Soll-Temperatur, Luftfeuchte, Boost,
+  Fenster-offen-Flag), Kontakte, Licht und Steckdosen, RolllÃ¤den, Sensoren
+- **Fenster & TÃ¼ren**: konsolidierte Liste mit Raumzuordnung
 - **Klima**: Klimakarten je geheiztem Raum mit Sollwert-Slider
 - **Licht & Steckdosen**: Toggle / Dimmer-Slider
-- **Rollläden**: Slider 0..1 (0 = offen, 1 = geschlossen)
-- **Sicherheit**: Rauchmelder, Bewegungs-/Präsenzsensoren, Wassersensoren
-- **Wartung**: Geräteanzahl, Batterie- und Erreichbarkeits-Warnungen
+- **RolllÃ¤den**: Slider 0..1 (0 = offen, 1 = geschlossen)
+- **Sicherheit**: Rauchmelder, Bewegungs-/PrÃ¤senzsensoren, Wassersensoren
+- **Wartung**: GerÃ¤teanzahl, Batterie- und Erreichbarkeits-Warnungen
 
-Alle Werte kommen live über `HmipSystemEvent`, ohne Polling.
-Statusänderungen erscheinen innerhalb einer Sekunde im UI.
+Alle Werte kommen live Ã¼ber `HmipSystemEvent`, ohne Polling.
+StatusÃ¤nderungen erscheinen innerhalb einer Sekunde im UI.
 
 ## Auf der HCU installieren
 
 1. Aktuelle `hmip-dashboard-plugin-<version>.tar.gz` aus den
    [Releases](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases) holen.
-2. In HCUweb *Entwicklermodus → Plugins → Aus Datei installieren* öffnen und hochladen.
+2. In HCUweb *Entwicklermodus â†’ Plugins â†’ Aus Datei installieren* Ã¶ffnen und hochladen.
 3. Plugin konfigurieren und im Browser
-   `http://hcu1-XXXX.local:<port>` öffnen.
+   `http://hcu1-XXXX.local:<port>` Ã¶ffnen.
 
 ## Selbst bauen
 
-Benötigt Docker + buildx auf einem Rechner mit LAN-Zugang zur HCU.
+BenÃ¶tigt Docker + buildx auf einem Rechner mit LAN-Zugang zur HCU.
 
 ```bash
 cd hmip-dashboard-plugin
@@ -69,7 +68,7 @@ Erzeugt `hmip-dashboard-plugin-<version>.tar.gz`.
 | Titel           | Text | Smart Home  | Wird in Browser-Tab und Kopfzeile gezeigt |
 | Steuerung erlauben | enum | true     | `false` = read-only (Kiosk-Modus)         |
 
-Speichern lädt den HTTP-Server automatisch neu. Die HCU mappt den
+Speichern lÃ¤dt den HTTP-Server automatisch neu. Die HCU mappt den
 Container-Port 1:1 auf die LAN-Schnittstelle.
 
 ## Remote entwickeln
@@ -89,8 +88,8 @@ npm run dev
 
 ## Sicherheit
 
-Das Dashboard läuft ohne Authentifizierung im lokalen Netz. Wenn dein LAN
-auch für Gäste offen ist, *Steuerung erlauben* auf `false` setzen oder die
+Das Dashboard lÃ¤uft ohne Authentifizierung im lokalen Netz. Wenn dein LAN
+auch fÃ¼r GÃ¤ste offen ist, *Steuerung erlauben* auf `false` setzen oder die
 HCU hinter einen Reverse-Proxy mit Basic-Auth stellen (nicht Teil des Plugins).
 
 ## Herausgeber

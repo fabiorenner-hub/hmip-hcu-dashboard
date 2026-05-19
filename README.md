@@ -1,4 +1,4 @@
-> 🇬🇧 English | [🇩🇪 Deutsch](README.de.md)
+> ðŸ‡¬ðŸ‡§ English | [ðŸ‡©ðŸ‡ª Deutsch](README.de.md)
 
 <p align="center">
   <img src="icon.svg" alt="hmip-dashboard-plugin icon" width="128" height="128"/>
@@ -6,7 +6,7 @@
 
 # hmip-dashboard-plugin
 
-📦 **[Download hmip-dashboard-plugin-1.1.0.tar.gz](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.1.0.tar.gz)** — install via HCUweb → *Developer mode → Plugins → Install from file*.
+ðŸ“¦ **[Download hmip-dashboard-plugin-1.1.1.tar.gz](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases/latest/download/hmip-dashboard-plugin-1.1.1.tar.gz)** â€” install via HCUweb â†’ *Developer mode â†’ Plugins â†’ Install from file*.
 
 GitHub: <https://github.com/fabiorenner-hub/hmip-hcu-dashboard>
 
@@ -14,12 +14,11 @@ Locally hosted web dashboard for the Homematic IP system, served as an HCU
 plugin. Once installed it is reachable at `http://hcu1-XXXX.local:8080`
 (or whichever port you configure).
 
-## Support this plugin
+## Support
 
 If this plugin is useful to you, please consider a small donation — it helps
-me keep the lights on while building more HCU plugins.
-
-<form action="https://www.paypal.com/donate" method="post" target="_top"><input type="hidden" name="hosted_button_id" value="JPZRATUUHRT5C" /><input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" /><img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" /></form>
+me keep the lights on while building more HCU plugins:
+[Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=JPZRATUUHRT5C).
 
 ## What the dashboard shows
 
@@ -41,7 +40,7 @@ in the UI within a second.
 
 1. Download the latest `hmip-dashboard-plugin-<version>.tar.gz` from the
    [Releases](https://github.com/fabiorenner-hub/hmip-hcu-dashboard/releases).
-2. In HCUweb open *Developer mode → Plugins → Install from file* and upload it.
+2. In HCUweb open *Developer mode â†’ Plugins â†’ Install from file* and upload it.
 3. Configure the plugin and open
    `http://hcu1-XXXX.local:<port>` in your browser.
 
@@ -113,10 +112,10 @@ HMIP App  <-- cloud ----->  HCU  <-- wss:9001 -->  plugin
 
 ## JSON API
 
-- `GET /api/state` — projected state (same as SSE, but a single snapshot)
-- `GET /api/raw` — unfiltered HMIP snapshot (useful for debugging)
-- `GET /api/events` — SSE stream, one event = full projected state
-- `POST /api/control` — body `{path, body}` is forwarded 1:1 as
+- `GET /api/state` â€” projected state (same as SSE, but a single snapshot)
+- `GET /api/raw` â€” unfiltered HMIP snapshot (useful for debugging)
+- `GET /api/events` â€” SSE stream, one event = full projected state
+- `POST /api/control` â€” body `{path, body}` is forwarded 1:1 as
   `HmipSystemRequest`. Only active when *Allow control* = `true`.
 
 ## Security
