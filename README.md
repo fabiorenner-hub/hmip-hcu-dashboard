@@ -77,6 +77,11 @@ a reverse proxy with basic auth.
 
 Issued by **Fabio Renner**.
 
+### Third-party components
+
+- Built against the [Homematic IP Connect API 1.0.1](https://github.com/homematicip/connect-api) by eQ-3.
+- Frontend uses vanilla HTML/CSS/JavaScript; no external UI framework or asset bundle.
+
 ## License
 
 Apache-2.0

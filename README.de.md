@@ -77,6 +77,11 @@ HCU hinter einen Reverse-Proxy mit Basic-Auth stellen.
 
 Herausgegeben von **Fabio Renner**.
 
+### Verwendete Drittanbieter
+
+- Gebaut gegen die [Homematic IP Connect API 1.0.1](https://github.com/homematicip/connect-api) von eQ-3.
+- Frontend nutzt reines HTML/CSS/JavaScript; kein externes UI-Framework oder Asset-Bundle.
+
 ## Lizenz
 
 Apache-2.0
