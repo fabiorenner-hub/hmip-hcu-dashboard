@@ -2,7 +2,7 @@
 set -euo pipefail
 
 IMAGE="hmip-dashboard-plugin"
-TAG="1.1.1"
+TAG="1.1.2"
 PLATFORM="linux/arm64"
 OUT="${IMAGE}-${TAG}.tar"
 OUT_GZ="${OUT}.gz"
@@ -35,4 +35,5 @@ gzip -f "${OUT}"
 
 echo ""
 echo ">> Done: $(pwd)/${OUT_GZ}"
+
 
